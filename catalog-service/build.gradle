@@ -2,11 +2,18 @@ plugins {
 	id 'java'
 	id 'org.springframework.boot' version '2.7.6'
 	id 'io.spring.dependency-management' version '1.0.15.RELEASE'
+	id 'com.adarshr.test-logger'
 }
 
 group = 'com.polarbookshop'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '17'
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
 
 repositories {
 	mavenCentral()
@@ -16,9 +23,18 @@ dependencies {
 	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.boot:spring-boot-starter-validation'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
+
+bootJar {
+	launchScript()
 }
 
 tasks.named('test') {
 	useJUnitPlatform()
+}
+
+testlogger {
+	theme 'mocha-parallel'
 }
