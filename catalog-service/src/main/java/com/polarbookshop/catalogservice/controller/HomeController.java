@@ -10,5 +10,4 @@ public class HomeController {
   public String hello() {
     return "Welcome to the book catalog!";
   }
-
 }

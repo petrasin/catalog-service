@@ -14,8 +14,7 @@ public class BookService {
   }
 
   public Book viewBookDetails(String isbn) {
-    return bookRepository.findByIsbn(isbn)
-        .orElseThrow(() -> new BookNotFoundException(isbn));
+    return bookRepository.findByIsbn(isbn).orElseThrow(() -> new BookNotFoundException(isbn));
   }
 
   public Book addBookToCatalog(Book book) {
@@ -30,9 +29,9 @@ public class BookService {
   }
 
   public Book editBookDetails(String isbn, Book book) {
-    return bookRepository.findByIsbn(isbn)
-                         .map(existing -> new Book(existing.isbn(),
-                             book.title(), book.author(), book.price()))
-                         .orElseGet(() -> addBookToCatalog(book));
+    return bookRepository
+        .findByIsbn(isbn)
+        .map(existing -> new Book(existing.isbn(), book.title(), book.author(), book.price()))
+        .orElseGet(() -> addBookToCatalog(book));
   }
 }
