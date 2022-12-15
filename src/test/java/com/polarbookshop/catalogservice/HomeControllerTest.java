@@ -1,4 +1,4 @@
-package com.polarbookshop.catalogservice.controller;
+package com.polarbookshop.catalogservice;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
