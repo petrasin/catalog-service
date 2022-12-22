@@ -5,7 +5,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-import com.polarbookshop.catalogservice.config.Greeter;
+import com.polarbookshop.catalogservice.config.PolarProperties;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
@@ -17,11 +17,11 @@ class HomeControllerTest {
 
   @Autowired MockMvc mockMvc;
 
-  @MockBean Greeter greeter;
+  @MockBean PolarProperties polarProperties;
 
   @Test
   void homeShouldReturnWelcomeMessage() throws Exception {
-    doReturn("Welcome to the book catalog!").when(greeter).greeting();
+    doReturn("Welcome to the book catalog!").when(polarProperties).getGreeting();
 
     mockMvc
         .perform(get("/"))
