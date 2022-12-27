@@ -4,9 +4,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 
 import com.polarbookshop.catalogservice.config.DataConfig;
-
 import java.util.Optional;
-
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.data.jdbc.DataJdbcTest;
@@ -21,11 +19,9 @@ import org.springframework.test.context.ActiveProfiles;
 @ActiveProfiles("integration")
 class BookRepositoryJdbcTests {
 
-  @Autowired
-  private BookRepository bookRepository;
+  @Autowired private BookRepository bookRepository;
 
-  @Autowired
-  JdbcAggregateTemplate jdbcAggregateTemplate;
+  @Autowired JdbcAggregateTemplate jdbcAggregateTemplate;
 
   @Test
   void findBookByIsbnWhenExisting() {
