@@ -49,8 +49,17 @@ dependencyManagement {
     }
 }
 
-bootJar {
-    launchScript()
+bootBuildImage {
+    imageName = "${project.name}"
+    environment = ["BP_JVM_VERSION" : "17.*"]
+
+    docker {
+        publishRegistry {
+            username = project.findProperty('registryUsername')
+            password = project.findProperty('registryPassword')
+            url = project.findProperty('registryUrl')
+        }
+    }
 }
 
 tasks.named('test') {
