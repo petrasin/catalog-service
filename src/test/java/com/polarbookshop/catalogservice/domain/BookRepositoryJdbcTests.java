@@ -1,8 +1,6 @@
 package com.polarbookshop.catalogservice.domain;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
-
 import com.polarbookshop.catalogservice.config.DataConfig;
 import java.util.Optional;
 import org.junit.jupiter.api.Test;
