@@ -13,8 +13,11 @@ import org.springframework.data.annotation.Version;
 
 public record Book(
     @Id Long id,
-    @NotBlank(message = "The book ISBN must be defined.") @Pattern(regexp = "^(?:\\d{10}|\\d{13})$", message = "The ISBN format "
-        + "must be " + "valid.") String isbn,
+    @NotBlank(message = "The book ISBN must be defined.")
+        @Pattern(
+            regexp = "^(?:\\d{10}|\\d{13})$",
+            message = "The ISBN format " + "must be " + "valid.")
+        String isbn,
     @NotBlank(message = "The book title must be defined.") String title,
     @NotBlank(message = "The book author must be defined.") String author,
     @Positive(message = "The book price must be greater than zero.") Double price,
