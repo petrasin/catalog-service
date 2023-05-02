@@ -20,6 +20,8 @@ public class SecurityConfig {
     return http.authorizeRequests(
             authorize ->
                 authorize
+                    .mvcMatchers(HttpMethod.GET, "/actuator/**")
+                    .permitAll()
                     .mvcMatchers(HttpMethod.GET, "/", "/books/**")
                     .permitAll()
                     .anyRequest()
