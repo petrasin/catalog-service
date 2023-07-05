@@ -28,10 +28,6 @@ spec:
           env:
             - name: BPL_JVM_THREAD_COUNT
               value: "10"
-            - name: SPRING_CLOUD_CONFIG_URI
-              value: http://config-service
-            - name: SPRING_DATASOURCE_URL
-              value: jdbc:postgresql://polar-postgres/polardb_catalog
             - name: POLAR_TESTDATA_ENABLED
               value: "true"
           livenessProbe:
@@ -46,5 +42,11 @@ spec:
               port: 9001
             initialDelaySeconds: 5
             periodSeconds: 15
-
+          volumeMounts:
+            - name: catalog-config-volume
+              mountPath: /workspace/config
+      volumes:
+        - name: catalog-config-volume
+          configMap:
+            name: catalog-config
 
